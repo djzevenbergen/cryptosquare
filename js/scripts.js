@@ -19,19 +19,14 @@ var nextSquare = function (localLength) {
   var findSquare;
   while (isSquare === false) {
     findSquare = Math.sqrt(localLength);
-    alert(findSquare);
     if (Number.isInteger(findSquare)) {
       isSquare = true;
-      alert(isSquare);
-
-
     } else {
       isSquare = false;
       localLength++;
     }
   }
   return localLength;
-  // alert(localLength);
 }
 
 $(document).ready(function () {
