@@ -16,19 +16,22 @@ var breakText = function (sent) {
 var nextSquare = function (localLength) {
 
   var isSquare = false;
-
-  findSquare = Math.sqrt(localLength);
+  var findSquare;
   while (isSquare === false) {
-    if (Number.isInteger(localLength)) {
-      isSquare =
-      // this is a square
-  
+    findSquare = Math.sqrt(localLength);
+    alert(findSquare);
+    if (Number.isInteger(findSquare)) {
+      isSquare = true;
+      alert(isSquare);
+
+
     } else {
       isSquare = false;
+      localLength++;
     }
   }
-
-
+  return localLength;
+  // alert(localLength);
 }
 
 $(document).ready(function () {
@@ -38,7 +41,6 @@ $(document).ready(function () {
     //alert(userSentence);
     alert(breakText(userSentence));
     var textLength = (breakText(userSentence)).length;
-    alert(textLength);
     nextSquare(textLength);
   })
 });
