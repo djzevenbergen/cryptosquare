@@ -42,15 +42,24 @@ var fiveChunks = function (array) {
   var chunk;
   var finalCode = [];
   var finalSentence = "";
+
+  //alert(array);
+
   var newArray = array.slice();
-  for (i = 0; i <= array.length; i++) {
+  for (i = 0; i <= (array.length / 5); i++) {
     chunk = newArray.splice(0, 5);
-    finalCode.push(chunk);
-    finalCode.push(' ');
+    var tempWord = chunk.join('');
+
+    finalSentence += (tempWord + " ");
+    // alert(finalSentence);
+    // finalCode.push(chunk);
+    // finalCode.push(" ");
   }
-  finalSentence = finalCode.join('');
+
+  //finalSentence = finalCode.join('');
   return finalSentence;
 }
+
 
 $(document).ready(function () {
   $("#formOne").submit(function (event) {
