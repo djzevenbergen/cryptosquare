@@ -40,13 +40,15 @@ var nextSquare = function (localLength) {
 var makeFinalArray = function (actualTextArray, square) {
   var localArray = actualTextArray.slice();
   var array = [];
-  for (var i = 0; i < localArray.length - square; i++) {
+
+  for (var i = 0; i < square; i++) {
     var ar1 = localArray[i];
-    for (var e = 0; e < localArray.length - square + i; e + square) {
+
+    for (var e = i; e < localArray.length + i; e += square) {
+      //alert(localArray[e]);
       array.push(localArray[e]);
     }
   }
-  alert(array);
   return array;
 }
 //appl    //0  1  2  3        //0         1
@@ -55,41 +57,11 @@ var makeFinalArray = function (actualTextArray, square) {
 //berr    //12 13 14 15       //3square   3square+1
 
 
-
-
 //0    4    8    12 13 14 15   16
 //appl bana grap berr
 
 // i < localArray.length-square + i
-
-//0     6     12    18    24    30   35 
-//applesbananagrapesberriemelonsmangoe
-
-
 //findSquare = "columns" in cryptosquare = # of characters in each new array
-//index value of characters in alphaNum 
-//e.g., if findSquare=8, array1 = alphaNum[0-7]; array2 = alphaNum[8-15]
-//
-
-//
-
-//hhhb
-
-
-
-// 
-
-//"abgbmmpareeapnm..."" --> [[abgbm] [mpare] ]
-
-
-
-
-
-// hey there bob
-// h e y t
-// h e r e
-// b o b 
-//        
 
 
 //index through complete output based on findSquare (0, findSquare-1, findSquare*2-1, etc.) (1, findSquare, findSquare*2, etc.) iterate while multiplier is less than findSquare
@@ -104,9 +76,12 @@ $(document).ready(function () {
     var userSentence = $("#sentence").val();
     //alert(userSentence);
     alert(breakText(userSentence));
-    var actualTextArray = breakTextArray(userSentence);
+    var actualTextArray = breakText(userSentence);
     var textLength = (breakText(userSentence)).length;
     var column = nextSquare(textLength);
-    makeFinalArray();
+    alert(column);
+    alert(makeFinalArray(actualTextArray, column));
+
+
   })
 });
